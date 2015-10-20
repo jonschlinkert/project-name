@@ -1,0 +1,53 @@
+{
+  "name": "project-name",
+  "description": "Get the name of a project, from package.json, git config, basename of the current working directory or, when all else fails, module caller.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/project-name",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/project-name",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/project-name/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "cwd": "^0.8.4",
+    "git-repo-name": "^0.4.0",
+    "lazy-cache": "^0.2.3",
+    "load-pkg": "^2.0.1"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "keywords": [
+    "app",
+    "detect",
+    "dir",
+    "directory",
+    "dirname",
+    "match",
+    "name",
+    "project",
+    "resolve",
+    "root"
+  ],
+  "verb": {
+    "related": {
+      "list": [
+        "appname",
+        "parse-filepath",
+        "cwd",
+        "git-repo-name"
+      ]
+    }
+  }
+}
