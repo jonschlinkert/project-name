@@ -1,6 +1,6 @@
 {
   "name": "project-name",
-  "description": "Get the name of a project, from package.json, git config, basename of the current working directory or, when all else fails, module caller.",
+  "description": "Get the name of a project, from package.json, git config, or basename of the current working directory.",
   "version": "0.1.0",
   "homepage": "https://github.com/jonschlinkert/project-name",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
@@ -43,9 +43,9 @@
   "verb": {
     "related": {
       "list": [
-        "appname",
-        "parse-filepath",
-        "cwd",
+        "git-user-email",
+        "git-user-name",
+        "git-username",
         "git-repo-name"
       ]
     }

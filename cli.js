@@ -2,5 +2,5 @@
 
 process.title = 'project-name';
 
-var name = require('./')(process.cwd());
+var name = require('./')();
 console.log(name);
