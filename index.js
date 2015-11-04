@@ -34,11 +34,14 @@ function pkgname(fp) {
 }
 
 /**
- * Get the git repository `name`
+ * Get the git repository `name`, silently fail
  */
 
 function gitname(fp) {
-  return utils.git(dirname(fp));
+  try {
+    return utils.git.sync(dirname(fp));
+  } catch (err) {}
+  return null;
 }
 
 /**
