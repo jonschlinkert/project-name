@@ -19,7 +19,7 @@ var cached;
  *  3. `path.basename` of the current working directory
  */
 
-module.exports = function (fp) {
+module.exports = function(fp) {
   return pkgname(fp) || gitname(fp) || basename(fp);
 };
 
@@ -27,9 +27,14 @@ module.exports = function (fp) {
  * Get the `name` property from package.json
  */
 
-function pkgname(fp) {
-  var pkg = utils.pkg(fp);
-  if (pkg) return pkg.name;
+function pkgname(dir) {
+  var file = utils.findPkg(dir);
+  if (file) {
+    try {
+      var pkg = require(path.resolve(file));
+      return pkg.name;
+    } catch (err) {}
+  }
   return;
 }
 
@@ -60,9 +65,12 @@ function basename(fp) {
 
 function dirname(fp) {
   if (cached) return cached;
-  var dir = utils.cwd(fp);
-  if (fs.statSync(dir).isFile()) {
-    dir = path.dirname(dir);
-  }
+  var dir = utils.findPkg(fp);
+  try {
+    var stat = fs.statSync(dir);
+    if (stat.isFile()) {
+      dir = path.dirname(dir);
+    }
+  } catch (err) {}
   return (cached = dir);
 }

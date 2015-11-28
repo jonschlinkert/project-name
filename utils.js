@@ -24,9 +24,8 @@ require = utils;
  * Lazily required module dependencies
  */
 
-require('cwd');
 require('git-repo-name', 'git');
-require('load-pkg', 'pkg');
+require('find-pkg');
 
 /**
  * Restore `require`
