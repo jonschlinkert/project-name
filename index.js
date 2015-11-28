@@ -28,7 +28,7 @@ module.exports = function(fp) {
  */
 
 function pkgname(dir) {
-  var file = utils.findPkg(dir);
+  var file = utils.findPkg.sync(dir);
   if (file) {
     try {
       var pkg = require(path.resolve(file));
@@ -65,7 +65,7 @@ function basename(fp) {
 
 function dirname(fp) {
   if (cached) return cached;
-  var dir = utils.findPkg(fp);
+  var dir = utils.findPkg.sync(fp);
   try {
     var stat = fs.statSync(dir);
     if (stat.isFile()) {
