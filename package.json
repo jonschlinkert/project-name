@@ -20,6 +20,7 @@
   "scripts": {
     "test": "mocha"
   },
+  "preferGlobal": true,
   "dependencies": {
     "cwd": "^0.8.4",
     "git-repo-name": "^0.5.0",
