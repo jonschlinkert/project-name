@@ -1,7 +1,7 @@
 {
   "name": "project-name",
   "description": "Get the name of a project, from package.json, git config, or basename of the current working directory.",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "homepage": "https://github.com/jonschlinkert/project-name",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/project-name",
@@ -22,9 +22,10 @@
   },
   "preferGlobal": true,
   "dependencies": {
-    "find-pkg": "^0.1.0",
+    "find-pkg": "^0.1.1",
     "git-repo-name": "^0.5.1",
-    "lazy-cache": "^0.2.4"
+    "minimist": "^1.2.0",
+    "try-open": "^0.1.0"
   },
   "devDependencies": {
     "mocha": "*"
