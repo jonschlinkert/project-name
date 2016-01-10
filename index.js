@@ -9,8 +9,9 @@
 
 var fs = require('fs');
 var path = require('path');
-var utils = require('./utils');
-var cached;
+var find = require('find-pkg');
+var exists = require('try-open');
+var repo = require('git-repo-name');
 
 /**
  * Resolves in this order:
@@ -27,15 +28,14 @@ module.exports = function(fp) {
  * Get the `name` property from package.json
  */
 
-function pkgname(dir) {
-  var file = utils.findPkg.sync(dir);
-  if (file) {
-    try {
-      var pkg = require(path.resolve(file));
-      return pkg.name;
-    } catch (err) {}
-  }
-  return;
+function pkgname(fp, pkgPath) {
+  try {
+    var pkgPath = find.sync(fp, 0);
+    if (!pkgPath) return null;
+    var pkg = require(path.resolve(pkgPath));
+    return pkg.name;
+  } catch (err) {}
+  return null;
 }
 
 /**
@@ -43,8 +43,11 @@ function pkgname(dir) {
  */
 
 function gitname(fp) {
+  var dir = dirname(fp);
+  if (!dir) return null;
+
   try {
-    return utils.git.sync(dirname(fp));
+    return repo.sync(dir);
   } catch (err) {}
   return null;
 }
@@ -54,7 +57,9 @@ function gitname(fp) {
  */
 
 function basename(fp) {
-  return path.basename(dirname(fp));
+  var dir = dirname(fp);
+  if (!dir) return null;
+  return path.basename(dir);
 }
 
 /**
@@ -63,14 +68,14 @@ function basename(fp) {
  * calls.
  */
 
-function dirname(fp) {
-  if (cached) return cached;
-  var dir = utils.findPkg.sync(fp);
+function dirname(dir) {
+  dir = path.resolve(dir);
   try {
     var stat = fs.statSync(dir);
     if (stat.isFile()) {
       dir = path.dirname(dir);
     }
+    return path.basename(dir);
   } catch (err) {}
-  return (cached = dir);
+  return null;
 }
