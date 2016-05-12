@@ -10,7 +10,6 @@
 var fs = require('fs');
 var path = require('path');
 var find = require('find-pkg');
-var exists = require('try-open');
 var repo = require('git-repo-name');
 
 /**
@@ -20,17 +19,18 @@ var repo = require('git-repo-name');
  *  3. `path.basename` of the current working directory
  */
 
-module.exports = function(fp) {
-  return pkgname(fp) || gitname(fp) || basename(fp);
+module.exports = function(filepath) {
+  return pkgname(filepath) || gitname(filepath) || basename(filepath);
 };
 
 /**
  * Get the `name` property from package.json
  */
 
-function pkgname(fp, pkgPath) {
+function pkgname(filepath) {
+  filepath = filepath || '';
   try {
-    var pkgPath = find.sync(fp, 0);
+    var pkgPath = find.sync(filepath, 0);
     if (!pkgPath) return null;
     var pkg = require(path.resolve(pkgPath));
     return pkg.name;
@@ -42,8 +42,8 @@ function pkgname(fp, pkgPath) {
  * Get the git repository `name`, silently fail
  */
 
-function gitname(fp) {
-  var dir = dirname(fp);
+function gitname(filepath) {
+  var dir = dirname(filepath || '');
   if (!dir) return null;
 
   try {
@@ -56,8 +56,8 @@ function gitname(fp) {
  * Get the `path.basename` of the current working directory.
  */
 
-function basename(fp) {
-  var dir = dirname(fp);
+function basename(filepath) {
+  var dir = dirname(filepath);
   if (!dir) return null;
   return path.basename(dir);
 }
@@ -69,7 +69,7 @@ function basename(fp) {
  */
 
 function dirname(dir) {
-  dir = path.resolve(dir);
+  dir = path.resolve(dir || '');
   try {
     var stat = fs.statSync(dir);
     if (stat.isFile()) {
