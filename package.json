@@ -10,24 +10,27 @@
   },
   "license": "MIT",
   "files": [
-    "index.js",
-    "utils.js"
+    "cli.js",
+    "index.js"
   ],
   "main": "index.js",
+  "preferGlobal": true,
+  "bin": {
+    "project-name": "cli.js"
+  },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
     "test": "mocha"
   },
-  "preferGlobal": true,
   "dependencies": {
     "find-pkg": "^0.1.1",
-    "git-repo-name": "^0.5.1",
-    "minimist": "^1.2.0",
-    "try-open": "^0.1.0"
+    "git-repo-name": "^0.6.0",
+    "minimist": "^1.2.0"
   },
   "devDependencies": {
+    "gulp-format-md": "^0.1.9",
     "mocha": "*"
   },
   "keywords": [
@@ -45,11 +48,25 @@
   "verb": {
     "related": {
       "list": [
+        "git-repo-name",
         "git-user-email",
         "git-user-name",
-        "git-username",
-        "git-repo-name"
+        "git-username"
       ]
-    }
+    },
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "lint": {
+      "reflinks": true
+    },
+    "reflinks": [
+      "verb"
+    ]
   }
 }
