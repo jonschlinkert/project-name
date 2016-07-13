@@ -16,7 +16,6 @@
     "README.md"
   ],
   "main": "index.js",
-  "preferGlobal": true,
   "bin": {
     "project-name": "cli.js"
   },
@@ -27,13 +26,13 @@
     "test": "mocha"
   },
   "dependencies": {
-    "find-pkg": "^0.1.1",
+    "find-pkg": "^0.1.2",
     "git-repo-name": "^0.6.0",
     "minimist": "^1.2.0"
   },
   "devDependencies": {
     "gulp-format-md": "^0.1.9",
-    "mocha": "*"
+    "mocha": "^2.5.3"
   },
   "keywords": [
     "app",
@@ -68,7 +67,8 @@
       "reflinks": true
     },
     "reflinks": [
-      "verb"
+      "verb",
+      "verb-readme-generator"
     ]
   }
 }
