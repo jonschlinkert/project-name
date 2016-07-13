@@ -1,7 +1,7 @@
 {
   "name": "project-name",
   "description": "Get the name of a project, from package.json, git config, or basename of the current working directory.",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "homepage": "https://github.com/jonschlinkert/project-name",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/project-name",
