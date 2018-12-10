@@ -14,6 +14,10 @@ $ npm install --save project-name
 
 ## Usage
 
+Requires [Node.js](https://nodejs.org/en/) >=8.
+
+**Project name**
+
 The project name is resolved in this order:
 
 1. Check for package.json, if it exists `name` is returned
