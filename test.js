@@ -9,10 +9,6 @@ describe('project-name', function() {
     assert.equal(name(), 'project-name');
   });
 
-  it('should return the name from a filepath', function() {
-    assert.equal(name('fixtures/foo/a.txt'), 'foo');
-  });
-
   it('should return the name from a directory', function() {
     assert.equal(name('fixtures/foo'), 'foo');
   });

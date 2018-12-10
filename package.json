@@ -10,29 +10,21 @@
   },
   "license": "MIT",
   "files": [
-    "cli.js",
-    "index.js",
-    "LICENSE",
-    "README.md"
+    "index.js"
   ],
   "main": "index.js",
-  "bin": {
-    "project-name": "cli.js"
-  },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "scripts": {
     "test": "mocha"
   },
   "dependencies": {
-    "find-pkg": "^0.1.2",
-    "git-repo-name": "^0.6.0",
-    "minimist": "^1.2.0"
+    "git-repo-name": "^1.0.1"
   },
   "devDependencies": {
-    "gulp-format-md": "^0.1.9",
-    "mocha": "^2.5.3"
+    "gulp-format-md": "^2.0.0",
+    "mocha": "^5.2.0"
   },
   "keywords": [
     "app",
@@ -47,14 +39,6 @@
     "root"
   ],
   "verb": {
-    "related": {
-      "list": [
-        "git-repo-name",
-        "git-user-email",
-        "git-user-name",
-        "git-username"
-      ]
-    },
     "toc": false,
     "layout": "default",
     "tasks": [
@@ -63,12 +47,16 @@
     "plugins": [
       "gulp-format-md"
     ],
+    "related": {
+      "list": [
+        "git-repo-name",
+        "git-user-email",
+        "git-user-name",
+        "git-username"
+      ]
+    },
     "lint": {
       "reflinks": true
-    },
-    "reflinks": [
-      "verb",
-      "verb-readme-generator"
-    ]
+    }
   }
 }
