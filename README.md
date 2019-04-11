@@ -12,6 +12,12 @@ Install with [npm](https://www.npmjs.com/):
 $ npm install --save project-name
 ```
 
+Install [Type Definitions](https://www.npmjs.com/package/@types/project-name)
+
+```sh
+$ npm install --save @types/project-name
+```
+
 ## Usage
 
 Requires [Node.js](https://nodejs.org/en/) >=8.
