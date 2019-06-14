@@ -5,7 +5,7 @@ const path = require('path');
 const repo = require('git-repo-name');
 
 module.exports = cwd => {
-  return pkgname(cwd) || gitname(cwd) || path.basename(cwd);
+  return pkgname(cwd) || gitname(cwd) || path.basename(cwd || process.cwd());
 };
 
 function pkgname(cwd = '') {
